@@ -44,7 +44,7 @@ dotnet ef database update
 ```sh
 dotnet run
 ```
-Then, open `http://localhost:5000/` in your browser.
+Then, open `http://localhost:5130/` in your browser.
 
 ##OPEN VISUAL CODE, ENTER THIS KEY: aio_GRns9174sgEdANWTkgIv9j3zUCNL
 
