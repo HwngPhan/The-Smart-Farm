@@ -114,3 +114,4 @@ D:\HOC_HANH\Materials\HK242\Do_An\TSF_mustidisProj\TSF_mustidisProj\obj\Debug\ne
 D:\HOC_HANH\Materials\HK242\Do_An\TSF_mustidisProj\TSF_mustidisProj\obj\Debug\net8.0\TSF_mustidisProj.pdb
 D:\HOC_HANH\Materials\HK242\Do_An\TSF_mustidisProj\TSF_mustidisProj\obj\Debug\net8.0\TSF_mustidisProj.genruntimeconfig.cache
 D:\HOC_HANH\Materials\HK242\Do_An\TSF_mustidisProj\TSF_mustidisProj\obj\Debug\net8.0\ref\TSF_mustidisProj.dll
+D:\HOC_HANH\Materials\HK242\Do_An\TSF_mustidisProj\TSF_mustidisProj\obj\Debug\net8.0\TSF_mustidisProj.sourcelink.json
