@@ -45,7 +45,8 @@ dotnet ef database update
 dotnet run
 ```
 Then, open `http://localhost:5000/` in your browser.
-**OPEN VISUAL CODE, ENTER THIS KEY: aio_GRns9174sgEdANWTkgIv9j3zUCNL
+
+##OPEN VISUAL CODE, ENTER THIS KEY: aio_GRns9174sgEdANWTkgIv9j3zUCNL
 
 ## Technologies Used
 - **Backend:** ASP.NET Core MVC
