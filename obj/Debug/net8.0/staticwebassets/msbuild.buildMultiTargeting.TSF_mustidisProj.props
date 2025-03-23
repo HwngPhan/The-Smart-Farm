@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TSF_mustidisProj.props" />
+</Project>

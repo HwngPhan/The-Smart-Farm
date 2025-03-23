@@ -1,0 +1,33 @@
+﻿@model List<TSF_mustidisProj.Models.FeedModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adafruit IO Feeds</title>
+</head>
+<body>
+    <h2>Adafruit IO Multiple Feeds</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Last Value</th>
+            <th>Last Updated</th>
+            <th>Group</th>
+        </tr>
+        @foreach (var feed in Model)
+        {
+            <tr>
+                <td>@feed.Id</td>
+                <td>@feed.Name</td>
+                <td>@feed.LastValue</td>
+                <td>@feed.LastValueAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@feed.Group.Name</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
