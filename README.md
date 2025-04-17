@@ -34,7 +34,7 @@ dotnet add package MySqlConnector.DependencyInjection --version 2.3.6
 dotnet add package Pomelo.EntityFrameworkCore.MySql --version 8.0.0
 ```
 
-### 4. Apply Migrations & Update Database
+### 4. Apply Migrations & Update Database ( only when apply changes to Model)
 ```sh
 dotnet ef migrations add InitialCreate
 dotnet ef database update
