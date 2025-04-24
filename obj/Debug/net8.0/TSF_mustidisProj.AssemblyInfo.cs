@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TSF_mustidisProj")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73fabb71b9aa5df4ad10fadf946c6f1e0290646d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0eb0364e807c7632dc6d2f5ca06b39cbb261f10a")]
 [assembly: System.Reflection.AssemblyProductAttribute("TSF_mustidisProj")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TSF_mustidisProj")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
