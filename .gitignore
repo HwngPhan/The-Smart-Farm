@@ -1,0 +1,8 @@
+# .gitignore
+
+# ignore user secrets
+.env
+
+# ignore build output
+bin/
+obj/
