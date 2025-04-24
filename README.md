@@ -56,8 +56,3 @@ Then, open `http://localhost:5130/` in your browser.
 - **IoT:** Adafruit IO (REST API)
 - **Frontend:** Razor Views (HTML, CSS, JS)
 
-## Contributing
-Feel free to submit issues or pull requests to improve the project!
-
-## License
-This project is licensed under the MIT License.
