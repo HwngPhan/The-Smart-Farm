@@ -14,14 +14,20 @@ namespace TSF_mustidisProj.Services  // Ensure this matches your project namespa
     {
         private readonly HttpClient _httpClient;
         private const string ApiUrl = "https://io.adafruit.com/api/v2/Hwng/feeds";
+    
         private readonly string _apiKey;
 
         public AdafruitService(HttpClient httpClient)
         {
             _httpClient = httpClient;   
             //_httpClient.DefaultRequestHeaders.Add("X-AIO-Key", ApiKey);
-            Console.Write("Enter your Adafruit IO API Key: ");
-            _apiKey = Console.ReadLine()?.Trim();
+            
+            _apiKey = Environment.GetEnvironmentVariable("apiKey");
+            if (string.IsNullOrEmpty(_apiKey))
+            {
+                Console.Write("Enter your Adafruit IO API Key: ");
+                _apiKey = Console.ReadLine()?.Trim();
+            }
 
             if (string.IsNullOrEmpty(_apiKey))
             {

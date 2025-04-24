@@ -2,9 +2,39 @@ using TSF_mustidisProj.Services;
 using TSF_mustidisProj.Data;
 using Microsoft.EntityFrameworkCore;
 using TSF_mustidisProj.Models;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Env.Load();
+
+var connectionString = builder.Configuration.GetConnectionString("Default");
+//test connection
+Console.WriteLine("======================================================");
+if (connectionString != null){
+    bool isConnected = DatabaseConnectionTest.TestConnection(connectionString);
+
+    if (!isConnected)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("ERROR: Could not connect to MySQL database. Application will not function correctly.");
+        Console.ResetColor();
+        // Optionally, you could exit here if connection is critical
+        // Environment.Exit(1);
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("MySQL connection test successful!");
+        Console.ResetColor();
+    }
+}
+else{
+    Console.WriteLine("NULL CONNECTION STRING");
+}
+
+Console.WriteLine("======================================================");
+
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
@@ -14,7 +44,7 @@ builder.Services.AddHttpClient<AdafruitService>(); // Register the servic
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline. 
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
