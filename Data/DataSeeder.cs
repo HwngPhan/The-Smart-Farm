@@ -10,15 +10,21 @@ namespace TSF_mustidisProj.Data
         {
             // Ensure database is created
             context.Database.EnsureCreated();
+            context.Feeds.RemoveRange(context.Feeds.ToList());
+            context.Users.RemoveRange(context.Users.ToList());
+            context.SaveChanges();
 
-            // Check if there are any users
+            // context.Database.ExecuteSqlRaw("ALTER TABLE Users AUTO_INCREMENT = 1");
+            // // Reset auto-increment for Feeds table
+            // context.Database.ExecuteSqlRaw("ALTER TABLE Feeds AUTO_INCREMENT = 1");
+            
             if (!context.Users.Any())
             {
                 // Add sample users
                 var users = new[]
                 {
-                    new User { Username = "user1" },
-                    new User { Username = "user2" }
+                    new User { Id = 1, Username = "user1" },
+                    new User { Id = 2, Username = "user2" }
                 };
 
                 context.Users.AddRange(users);
@@ -28,29 +34,71 @@ namespace TSF_mustidisProj.Data
                 var feeds = new[]
                 {
                     new Feed 
-                    { 
-                        Name = "Temperature", 
-                        Key = "temp-feed", 
-                        LastValue = "24.5", 
-                        RecordedAt = DateTime.Now.AddHours(-1),
+                    {
+                        Id = 1,
+                        Name = "AutoPump", 
+                        Key = "autopump", 
+                        LastValue = "OFF", 
+                        
                         UserId = users[0].Id
                     },
                     new Feed 
                     { 
-                        Name = "Humidity", 
-                        Key = "humidity-feed", 
-                        LastValue = "65.2", 
-                        RecordedAt = DateTime.Now.AddHours(-2),
+                        Id = 2,
+                        Name = "light Intensity", 
+                        Key = "light", 
+                        LastValue = "1715", 
+                        UserId = users[0].Id
+                    },
+                    new Feed
+                    { 
+                        Id = 3,
+                        Name = "lights", 
+                        Key = "lights", 
+                        LastValue = "OFF", 
                         UserId = users[0].Id
                     },
                     new Feed 
                     { 
-                        Name = "Light", 
-                        Key = "light-feed", 
-                        LastValue = "345", 
-                        RecordedAt = DateTime.Now.AddHours(-1),
-                        UserId = users[1].Id
-                    }
+                        Id = 4,
+                        Name = "moisture", 
+                        Key = "moisture", 
+                        LastValue = "57.9", 
+                        UserId = users[0].Id
+                    },
+                    new Feed 
+                    { 
+                        Id = 5,
+                        Name = "pumps", 
+                        Key = "pumps", 
+                        LastValue = "ON", 
+                        UserId = users[0].Id
+                    },
+                    new Feed 
+                    { 
+                        Id = 6,
+                        Name = "soimoi", 
+                        Key = "soimoi", 
+                        LastValue = "0", 
+                        UserId = users[0].Id
+                    },
+                    new Feed 
+                    { 
+                        Id = 7,
+                        Name = "soimoilimit", 
+                        Key = "soimoilimit", 
+                        LastValue = "30", 
+                        UserId = users[0].Id
+                    },
+                    new Feed 
+                    { 
+                        Id = 8,
+                        Name = "temperature", 
+                        Key = "temperature", 
+                        LastValue = "28.0", 
+                        UserId = users[0].Id
+                    },
+                    
                 };
 
                 context.Feeds.AddRange(feeds);
