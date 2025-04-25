@@ -34,6 +34,8 @@ dotnet add package MySqlConnector.DependencyInjection --version 2.3.6
 dotnet add package Pomelo.EntityFrameworkCore.MySql --version 8.0.0
 dotnet add package MySql.Data --version 9.3.0
 dotner add package DotNetEnv --version 3.1.1
+dotnet add package MQTTnet --version 5.0.1.1416
+dotnet add package MQTTnet.Extensions.ManagedClient --version 4.3.7.1207
 ```
 
 ### 4. Apply Migrations & Update Database ( only when apply changes to Model)
