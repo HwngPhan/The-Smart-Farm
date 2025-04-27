@@ -42,6 +42,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<AdafruitService>(); // Register the servic
 
+//builder.Services.AddSingleton<IMqttService, AdafruitMqttService>();
+builder.Services.AddScoped<IMqttService, AdafruitMqttService>();
+builder.Services.AddHostedService<MqttBackgroundService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline. 

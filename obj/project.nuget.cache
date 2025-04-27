@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MRAS1ZdPy5w=",
+  "dgSpecHash": "2xRX59GTBso=",
   "success": true,
-  "projectFilePath": "D:\\HOC_HANH\\Materials\\HK242\\Multidiscipnary_Project\\TSF_mustidisProj\\TSF_mustidisProj\\TSF_mustidisProj.csproj",
+  "projectFilePath": "D:\\HOC_HANH\\Materials\\HK242\\Do_An_clone\\The-Smart-Farm\\TSF_mustidisProj.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KHÁNH\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\KHÁNH\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
@@ -43,6 +43,8 @@
     "C:\\Users\\KHÁNH\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\KHÁNH\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\KHÁNH\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\KHÁNH\\.nuget\\packages\\mqttnet\\4.3.7.1207\\mqttnet.4.3.7.1207.nupkg.sha512",
+    "C:\\Users\\KHÁNH\\.nuget\\packages\\mqttnet.extensions.managedclient\\4.3.7.1207\\mqttnet.extensions.managedclient.4.3.7.1207.nupkg.sha512",
     "C:\\Users\\KHÁNH\\.nuget\\packages\\mysql.data\\9.3.0\\mysql.data.9.3.0.nupkg.sha512",
     "C:\\Users\\KHÁNH\\.nuget\\packages\\mysqlconnector\\2.3.6\\mysqlconnector.2.3.6.nupkg.sha512",
     "C:\\Users\\KHÁNH\\.nuget\\packages\\mysqlconnector.dependencyinjection\\2.3.6\\mysqlconnector.dependencyinjection.2.3.6.nupkg.sha512",
