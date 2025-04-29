@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HOC_HANH\\Materials\\HK242\\Do_An\\TSF_mustidisProj\\TSF_mustidisProj\\TSF_mustidisProj.csproj": {}
+    "D:\\hochanh\\hk242\\do_an\\clone_doan\\The-Smart-Farm\\TSF_mustidisProj.csproj": {}
   },
   "projects": {
-    "D:\\HOC_HANH\\Materials\\HK242\\Do_An\\TSF_mustidisProj\\TSF_mustidisProj\\TSF_mustidisProj.csproj": {
+    "D:\\hochanh\\hk242\\do_an\\clone_doan\\The-Smart-Farm\\TSF_mustidisProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HOC_HANH\\Materials\\HK242\\Do_An\\TSF_mustidisProj\\TSF_mustidisProj\\TSF_mustidisProj.csproj",
+        "projectUniqueName": "D:\\hochanh\\hk242\\do_an\\clone_doan\\The-Smart-Farm\\TSF_mustidisProj.csproj",
         "projectName": "TSF_mustidisProj",
-        "projectPath": "D:\\HOC_HANH\\Materials\\HK242\\Do_An\\TSF_mustidisProj\\TSF_mustidisProj\\TSF_mustidisProj.csproj",
-        "packagesPath": "C:\\Users\\KHÁNH\\.nuget\\packages\\",
-        "outputPath": "D:\\HOC_HANH\\Materials\\HK242\\Do_An\\TSF_mustidisProj\\TSF_mustidisProj\\obj\\",
+        "projectPath": "D:\\hochanh\\hk242\\do_an\\clone_doan\\The-Smart-Farm\\TSF_mustidisProj.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\hochanh\\hk242\\do_an\\clone_doan\\The-Smart-Farm\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\KHÁNH\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -52,10 +52,14 @@
               "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.10, )"
             },
@@ -87,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

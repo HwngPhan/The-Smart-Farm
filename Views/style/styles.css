@@ -1,0 +1,460 @@
+/* Sidebar styles */
+.sidebar {
+    height: 100vh;
+    background-color: #F1F0E9;
+    position: fixed;
+    width: 250px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.sidebar .nav-link {
+    color: black;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+}
+
+.sidebar .nav-link:hover {
+    color: #ECB365;
+}
+
+.sidebar .nav-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.sidebar .nav-link:hover .nav-icon {
+    color: black;
+    background: #ECB365;
+    border-color: #F1F0E9;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-profile div {
+    font-size: 1.1rem;
+}
+
+.main-content {
+    margin-left: 250px;
+    background: #555C4A;
+    color: white;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Mobile styles */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar-collapse {
+        display: none;
+    }
+
+    .main-content {
+        margin-top: 3em;
+        margin-left: 0;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+}
+
+.main-content {
+    background: #555C4A !important;
+    height: inherit;
+}
+
+/* Progress Bar Styles */
+.main-content .card {
+    background-color: #ffffff;
+    /* Give card a background if needed */
+    color: #333;
+    /* Default text color for card content */
+}
+
+.main-content .card-header.bg-primary {
+    background-color: #0d6efd !important;
+    /* Ensure Bootstrap primary color */
+    color: white;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    /* Aligns bars to the bottom */
+    height: 250px;
+    /* Make sure container has height */
+    /* background-color: #f8f9fa; Remove or change if desired */
+
+    border-radius: 10px;
+    /* Slightly smaller radius maybe */
+
+}
+
+.action_infor{
+    margin-top: 3em;
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    /* Make item take full height of container */
+    justify-content: flex-end;
+    /* Align vertical bar to bottom */
+}
+
+.progress-bar-fill {
+    position: relative;
+    /* Make this the positioning context */
+    width: 100%;
+    transition: height 0.5s ease;
+}
+
+.progress-bar-vertical {
+    width: 5em;
+    height: 100%;
+    /* Takes full height of progress-item */
+    background-color: #e9ecef;
+    /* The track color */
+    border-radius: 14px;
+    display: flex;
+    /* Use flex to control the fill */
+    flex-direction: column-reverse;
+    /* Fill grows from bottom */
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Needed for absolute positioning of text */
+}
+
+/* --- Define the color variables on the specific bar items --- */
+.progress-item.bar-1 {
+    --progress-color: linear-gradient(to top, #4e54c8, #8f94fb);
+}
+
+.progress-item.bar-2 {
+    --progress-color: linear-gradient(to top, #11998e, #38ef7d);
+}
+
+.progress-item.bar-3 {
+    --progress-color: linear-gradient(to top, #f46b45, #eea849);
+}
+
+/* --- Apply the color using the variable --- */
+.progress-bar-fill {
+    width: 100%;
+    border-radius: 10px;
+    background: var(--progress-color, #adb5bd);
+    /* Use the variable, fallback to grey */
+    transition: height 0.5s ease;
+    /* height is set via inline style in HTML */
+}
+
+
+.percentage-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+    transition: bottom 0.5s ease;
+    /* Smooth movement with the fill */
+}
+
+.progress-label {
+    text-align: center;
+    margin-top: 10px;
+    /* Reduced margin */
+    font-weight: bold;
+    font-size: 1rem;
+    /* Slightly smaller label */
+    color: #333;
+    /* Ensure label color contrasts with card background */
+    padding-bottom: 5px;
+    /* Add padding if needed */
+}
+
+
+/* Ensure main content is visible */
+.main-content {
+    margin-left: 250px;
+    /* Keep space for sidebar */
+    /* background: #555C4A; */
+    /* Removed dark background to see card better */
+    background: #f0f0f0;
+    /* Lighter background */
+    color: #333;
+    /* Default text color */
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.status_box {
+    background-color: rgba(101, 110, 86, 0.489) !important;
+}
+
+.status_box_ele {
+    background-color: rgba(101, 110, 86, 0.489) !important;
+}
+
+.status_box_ele_text {
+    color: white;
+    text-decoration: none;
+    font-weight: 60 !important;
+}
+
+.action_box_total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action_box_ele {
+    display: flex;
+    background: #282C24;
+    height: 8em;
+    width: 30em;
+    border-radius: 12px;
+    padding-top: 2em;
+}
+
+
+.action_box_ele_icon {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    height: 8em;
+    width: 6em;
+    border-radius: 12px;
+}
+
+.action_box_total .progress-bar-vertical {
+    height: 70px;
+}
+
+.action_box_total .progress-container {
+    /* Different container styles */
+    height: 100px;
+
+}
+
+.action_box_total .progress-bar-vertical {
+    /* Different bar styles */
+    width: 20px;
+    background-color: #f0f0f0;
+    padding: 0px !important;
+}
+
+.action_box_total .progress-bar-fill {
+    /* Different fill styles */
+    padding: 0px !important;
+    background: linear-gradient(to top, #4e54c8, #8f94fb);
+}
+
+.action_box_total .progress-label {
+    /* Different label styles */
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1111px) {
+    .main-content {
+        margin-left: 0;
+        /* No sidebar margin */
+        /* margin-top: 56px; */
+        /* Adjust based on your navbar height */
+        padding-top: 70px;
+        /* Add padding to account for fixed mobile nav */
+    }
+
+    .progress-container {
+        flex-direction: column;
+        /* Stack bars vertically on small screens */
+        align-items: center;
+        /* Center stack */
+        height: auto;
+        /* Adjust height automatically */
+        padding: 20px;
+    }
+
+    .progress-item {
+        width: 80%;
+        /* Make items wider */
+        margin-bottom: 20px;
+        /* Add space between stacked items */
+        height: 200px;
+        /* Give a fixed height for consistency */
+    }
+
+    .progress-bar-vertical {
+        width: 80%;
+        /* Make vertical bar wider */
+    }
+
+    .progress-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Add back your sidebar styles here */
+.sidebar {
+    height: 100vh;
+    background-color: #F1F0E9;
+    position: fixed;
+    width: 250px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.sidebar .nav-link {
+    color: black;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+}
+
+.sidebar .nav-link:hover {
+    color: #ECB365;
+}
+
+.sidebar .nav-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.sidebar .nav-link:hover .nav-icon {
+    color: black;
+    background: #ECB365;
+    border-color: #F1F0E9;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-profile div {
+    font-size: 1.1rem;
+}
+
+.sidebar .nav.flex-column {
+    height: calc(100% - 100px);
+    /* Adjust based on user profile height */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .nav-item.mt-auto {
+    margin-top: auto !important;
+}
+
+.temp_and_water{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.progress-item.progress-water {
+    margin: 1.5em;
+    height: 100%;
+    margin-bottom: 0 !important;
+}
+
+.action_box_ele_temperature {
+    display: flex;
+    background: #282C24;
+    height: 8em;
+    width: 30em;
+    border-radius: 12px;
+}
+
+.action_box_ele_icon_temper {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    height: 8em;
+    width: 6em;
+    border-radius: 12px;
+    margin-top: 1.5em;
+}
+
+
+.temperature_container{
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.temperature_box{
+    padding:10px;
+    display: flex;
+    width: 20em;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.temperature_box_data{
+    padding:0.5em;
+    border-radius: 12px;
+    background: #414941;
+   color :#67DE84;
+}
+
+.temperature_box_button{
+    padding: auto;
+    justify-content: center;
+}
+
+.temperature_box_button button{
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+.temperature_box_button button:hover{
+    background-color: #ECB365;
+}
+
+
