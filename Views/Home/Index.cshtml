@@ -1,33 +1,349 @@
-﻿@model List<TSF_mustidisProj.Models.FeedModel>
+﻿
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adafruit IO Feeds</title>
+  <link rel="stylesheet" href="~/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>FARMING</title>
 </head>
 <body>
-    <h2>Adafruit IO Multiple Feeds</h2>
+    <nav class="navbar navbar-expand-lg d-lg-none fixed-top" style="background-color: #F1F0E9;">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center">
+        <img src="../images/images.jpg" class="rounded-circle me-2" width="40" height="40">
+        <span class="navbar-brand">Username</span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mobileNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">
+              <div class="nav-icon"><i class="bi bi-house"></i></div>
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#home">
+              <div class="nav-icon"><i class="bi bi-geo-alt"></i></div>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#home">
+              <div class="nav-icon"><i class="bi bi-bar-chart"></i></div>
+              <span>Stats</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#home">
+              <div class="nav-icon"><i class="bi bi-list"></i></div>
+              <span>Menu</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#home">
+              <i class="bi bi-question-circle me-2"></i>
+              Need help
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Last Value</th>
-            <th>Last Updated</th>
-            <th>Group</th>
-        </tr>
-        @foreach (var feed in Model)
-        {
-            <tr>
-                <td>@feed.Id</td>
-                <td>@feed.Name</td>
-                <td>@feed.LastValue</td>
-                <td>@feed.LastValueAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
-                <td>@feed.Group.Name</td>
-            </tr>
+  <!-- Desktop Sidebar (Hidden on mobile) -->
+  <div class="sidebar d-none d-lg-block">
+    <div class="user-profile">
+      <img src="../images/images.jpg" alt="User">
+      <div>Username</div>
+    </div>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="#home">
+          <div class="nav-icon"><i class="bi bi-house"></i></div>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#home">
+          <div class="nav-icon"><i class="bi bi-geo-alt"></i></div>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#home">
+          <div class="nav-icon"><i class="bi bi-bar-chart"></i></div>
+          <span>Stats</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#home">
+          <div class="nav-icon"><i class="bi bi-list"></i></div>
+          <span>Menu</span>
+        </a>
+      </li>
+      <li class="nav-item mt-auto">
+        <a class="nav-link" href="#home">
+          <i class="bi bi-question-circle me-2"></i>
+          Need help
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h4>FARM</h4>
+    <div class="status_box_total"></div>
+    <div class="container mt-5" style="display: flex; justify-content: space-around;">
+      <div class="card shadow-lg" style="width: 33%;">
+        <div class="card-header text-white border-0 status_box">
+          <h3 class="mb-0" style="text-align: center;">Status</h3>
+        </div>
+        <div class="card-body p-4 status_box_ele">
+          <div class="progress-container">
+            <!-- First bar (100%) - Purple/Blue -->
+            <div class="progress-item bar-3">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 70%;">
+                  <div class="percentage-text" style="bottom: 50%;">36C</div>
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Temperature</div>
+            </div>
+
+            <!-- Second bar (75%) - Green/Teal -->
+            <div class="progress-item bar-2">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 50%;">
+                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Halfway</div>
+            </div>
+
+            <!-- Third bar (50%) - Orange/Red -->
+            <div class="progress-item bar-1">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 50%;">
+                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Halfway</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card shadow-lg" style="width: 33%;">
+        <div class="card-header text-white border-0 status_box">
+          <h3 class="mb-0" style="text-align: center;">Status</h3>
+        </div>
+        <div class="card-body p-4 status_box_ele">
+          <div class="progress-container">
+            <!-- First bar (100%) - Purple/Blue -->
+            <div class="progress-item bar-3">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 70%;">
+                  <div class="percentage-text" style="bottom: 50%;">36C</div>
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Temperature</div>
+            </div>
+
+            <!-- Second bar (75%) - Green/Teal -->
+            <div class="progress-item bar-2">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 50%;">
+                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Halfway</div>
+            </div>
+
+            <!-- Third bar (50%) - Orange/Red -->
+            <div class="progress-item bar-1">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 50%;">
+                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Halfway</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="action_infor">
+      <h4>Quick action and information</h4>
+
+      <div class="action_box_total">
+        <!-- Water box -->
+        <div class="action_box_ele">
+          <div class="action_box_ele_icon">
+            <i class="bi bi-water" style="font-size: 2rem;"></i>
+            <p>Water</p>
+          </div>
+
+          <div class="progress-container">
+            <div class="progress-item bar-3 progress-water">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 30%;">
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Water level</div>
+            </div>
+            <div class="progress-item bar-3 progress-water">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 30%;">
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Water level</div>
+            </div>
+            <div class="progress-item bar-3 progress-water">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 30%;">
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Water level</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="action_box_ele_temperature">
+          <div class="action_box_ele_icon_temper">
+            <i class="bi bi-thermometer-half" style="font-size: 2rem;"></i>
+            <p>Temperature</p>
+          </div>
+
+          <div class="progress-container temperature_container">
+            <div class="temperature_box">
+              <div class="temperature_box_data">Area 1: DATA</div>
+              <div class="temperature_box_button">
+                <button><i class="bi bi-plus-lg "></i></button>
+                <button><i class="bi bi-dash"></i></button>
+              </div>
+            </div>
+            <div class="temperature_box">
+              <div class="temperature_box_data">Area 1: DATA</div>
+              <div class="temperature_box_button">
+                <button><i class="bi bi-plus-lg "></i></button>
+                <button><i class="bi bi-dash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="action_infor">
+      <div class="action_box_total">
+        <!-- Water box -->
+        <div class="action_box_ele">
+          <div class="action_box_ele_icon">
+            <i class="bi bi-cloud-haze2" style="font-size: 2rem;"></i>
+            <p>Moisture</p>
+          </div>
+
+          <div class="progress-container">
+            <div class="progress-item bar-3 progress-water">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 30%;">
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Water level</div>
+            </div>
+            <div class="progress-item bar-3 progress-water">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 30%;">
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Water level</div>
+            </div>
+            <div class="progress-item bar-3 progress-water">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 30%;">
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Water level</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="action_box_ele_temperature">
+          <div class="action_box_ele_icon_temper">
+            <i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
+            <p>Lightness</p>
+          </div>
+
+          <div class="progress-container temperature_container">
+            <div class="temperature_box">
+              <div class="temperature_box_data">Area 1: DATA</div>
+              <div class="temperature_box_button">
+                <button><i class="bi bi-plus-lg "></i></button>
+                <button><i class="bi bi-dash"></i></button>
+              </div>
+            </div>
+            <div class="temperature_box">
+              <div class="temperature_box_data">Area 1: DATA</div>
+              <div class="temperature_box_button">
+                <button><i class="bi bi-plus-lg "></i></button>
+                <button><i class="bi bi-dash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </main>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script>
+    // Only target .progress-water bars
+    document.querySelectorAll('.progress-water .progress-bar-vertical').forEach(container => {
+      container.addEventListener('click', function (e) {
+        const rect = this.getBoundingClientRect();
+        const clickY = e.clientY - rect.top;
+        const height = rect.height;
+
+        // Calculate from bottom up
+        const percentage = Math.round(100 - (clickY / height) * 100);
+        const clamped = Math.max(0, Math.min(percentage, 100));
+
+        // Update fill
+        const fill = this.querySelector('.progress-bar-fill');
+        fill.style.height = clamped + '%';
+
+        // Optional: update label inside bar
+        let label = fill.querySelector('.percentage-text');
+        if (label) {
+          label.textContent = clamped + '%';
         }
-    </table>
+
+        // Send value to PHP
+        fetch('update_water.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'waterLevel=' + encodeURIComponent(clamped)
+        })
+          .then(res => res.text())
+          .then(data => console.log('Server says:', data))
+          .catch(err => console.error('Error:', err));
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
