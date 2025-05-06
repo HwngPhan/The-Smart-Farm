@@ -79,7 +79,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#home">
           <div class="nav-icon"><i class="bi bi-bar-chart"></i></div>
-          <span>Stats</span>
+          <span>Statistics</span>
         </a>
       </li>
       <li class="nav-item">
@@ -99,12 +99,12 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <h4>FARM</h4>
+    <h4>THE SMART FARM</h4>
     <div class="status_box_total"></div>
     <div class="container mt-5" style="display: flex; justify-content: space-around;">
       <div class="card shadow-lg" style="width: 33%;">
         <div class="card-header text-white border-0 status_box">
-          <h3 class="mb-0" style="text-align: center;">Status</h3>
+          <h3 class="mb-0" style="text-align: center;">Soil Moisture</h3>
         </div>
         <div class="card-body p-4 status_box_ele">
           <div class="progress-container">
@@ -112,38 +112,38 @@
             <div class="progress-item bar-3">
               <div class="progress-bar-vertical">
                 <div class="progress-bar-fill" style="height: 70%;">
-                  <div class="percentage-text" style="bottom: 50%;">36C</div>
+                  <div class="percentage-text" style="bottom: 50%;">70%</div>
                 </div>
               </div>
-              <div class="progress-label status_box_ele_text">Temperature</div>
+              <div class="progress-label status_box_ele_text">Current</div>
             </div>
 
             <!-- Second bar (75%) - Green/Teal -->
             <div class="progress-item bar-2">
               <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 50%;">
-                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                <div class="progress-bar-fill" style="height: 20%;">
+                  <div class="percentage-text" style="bottom: 50%;">20%</div>
                 </div>
               </div>
-              <div class="progress-label status_box_ele_text">Halfway</div>
+              <div class="progress-label status_box_ele_text">Minimum</div>
             </div>
 
             <!-- Third bar (50%) - Orange/Red -->
-            <div class="progress-item bar-1">
+            <!-- <div class="progress-item bar-1">
               <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 50%;">
-                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                <div class="progress-bar-fill" style="height: 80%;">
+                  <div class="percentage-text" style="bottom: 50%;">80%</div>
                 </div>
               </div>
-              <div class="progress-label status_box_ele_text">Halfway</div>
-            </div>
+              <div class="progress-label status_box_ele_text">Maximum</div>
+            </div> -->
 
           </div>
         </div>
       </div>
       <div class="card shadow-lg" style="width: 33%;">
         <div class="card-header text-white border-0 status_box">
-          <h3 class="mb-0" style="text-align: center;">Status</h3>
+          <h3 class="mb-0" style="text-align: center;">Temperature</h3>
         </div>
         <div class="card-body p-4 status_box_ele">
           <div class="progress-container">
@@ -154,11 +154,11 @@
                   <div class="percentage-text" style="bottom: 50%;">36C</div>
                 </div>
               </div>
-              <div class="progress-label status_box_ele_text">Temperature</div>
+              <!-- <div class="progress-label status_box_ele_text">Temperature</div> -->
             </div>
 
-            <!-- Second bar (75%) - Green/Teal -->
-            <div class="progress-item bar-2">
+           
+            <!-- <div class="progress-item bar-2">
               <div class="progress-bar-vertical">
                 <div class="progress-bar-fill" style="height: 50%;">
                   <div class="percentage-text" style="bottom: 50%;">50%</div>
@@ -167,7 +167,7 @@
               <div class="progress-label status_box_ele_text">Halfway</div>
             </div>
 
-            <!-- Third bar (50%) - Orange/Red -->
+            
             <div class="progress-item bar-1">
               <div class="progress-bar-vertical">
                 <div class="progress-bar-fill" style="height: 50%;">
@@ -175,7 +175,7 @@
                 </div>
               </div>
               <div class="progress-label status_box_ele_text">Halfway</div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -189,119 +189,59 @@
 
       <div class="action_box_total">
         <!-- Water box -->
-        <div class="action_box_ele">
-          <div class="action_box_ele_icon">
-            <i class="bi bi-water" style="font-size: 2rem;"></i>
-            <p>Water</p>
+        <div class="action_box_ele_temperature">
+          <div class="action_box_ele_icon_temper">
+              <i class="bi bi-water" style="font-size: 2rem;"></i>
+              <p>Pump</p>
           </div>
 
-          <div class="progress-container">
-            <div class="progress-item bar-3 progress-water">
-              <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 30%;">
-                </div>
-              </div>
-              <div class="progress-label status_box_ele_text">Water level</div>
-            </div>
-            <div class="progress-item bar-3 progress-water">
-              <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 30%;">
-                </div>
-              </div>
-              <div class="progress-label status_box_ele_text">Water level</div>
-            </div>
-            <div class="progress-item bar-3 progress-water">
-              <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 30%;">
-                </div>
-              </div>
-              <div class="progress-label status_box_ele_text">Water level</div>
-            </div>
-          </div>
+          <label class="switch">
+              <input type="checkbox" id="pumpToggle"/>
+              <span class="slider round"></span>
+          </label>
         </div>
+
 
         <div class="action_box_ele_temperature">
           <div class="action_box_ele_icon_temper">
-            <i class="bi bi-thermometer-half" style="font-size: 2rem;"></i>
-            <p>Temperature</p>
+              <i class="bi bi-water" style="font-size: 2rem;"></i>
+              <p>Automatic Pump</p>
           </div>
 
-          <div class="progress-container temperature_container">
-            <div class="temperature_box">
-              <div class="temperature_box_data">Area 1: DATA</div>
-              <div class="temperature_box_button">
-                <button><i class="bi bi-plus-lg "></i></button>
-                <button><i class="bi bi-dash"></i></button>
-              </div>
-            </div>
-            <div class="temperature_box">
-              <div class="temperature_box_data">Area 1: DATA</div>
-              <div class="temperature_box_button">
-                <button><i class="bi bi-plus-lg "></i></button>
-                <button><i class="bi bi-dash"></i></button>
-              </div>
-            </div>
-          </div>
+          <label class="switch">
+              <input type="checkbox" id="autopumpToggle" />
+              <span class="slider round"></span>
+          </label>
         </div>
+
       </div>
     </div>
 
 
     <div class="action_infor">
       <div class="action_box_total">
-        <!-- Water box -->
-        <div class="action_box_ele">
-          <div class="action_box_ele_icon">
-            <i class="bi bi-cloud-haze2" style="font-size: 2rem;"></i>
-            <p>Moisture</p>
+        <div class="action_box_ele_temperature">
+          <div class="action_box_ele_icon_temper">
+              <i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
+              <p>Light</p>
           </div>
 
-          <div class="progress-container">
-            <div class="progress-item bar-3 progress-water">
-              <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 30%;">
-                </div>
-              </div>
-              <div class="progress-label status_box_ele_text">Water level</div>
-            </div>
-            <div class="progress-item bar-3 progress-water">
-              <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 30%;">
-                </div>
-              </div>
-              <div class="progress-label status_box_ele_text">Water level</div>
-            </div>
-            <div class="progress-item bar-3 progress-water">
-              <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 30%;">
-                </div>
-              </div>
-              <div class="progress-label status_box_ele_text">Water level</div>
-            </div>
-          </div>
+          <label class="switch">
+              <input type="checkbox" id="lightToggle" />
+              <span class="slider round"></span>
+          </label>
         </div>
 
         <div class="action_box_ele_temperature">
           <div class="action_box_ele_icon_temper">
-            <i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
-            <p>Lightness</p>
+            <i class="bi bi-cloud-haze2" style="font-size: 2rem;"></i>
+            <p>Moisture Threshold</p>
           </div>
 
           <div class="progress-container temperature_container">
-            <div class="temperature_box">
-              <div class="temperature_box_data">Area 1: DATA</div>
-              <div class="temperature_box_button">
-                <button><i class="bi bi-plus-lg "></i></button>
-                <button><i class="bi bi-dash"></i></button>
-              </div>
-            </div>
-            <div class="temperature_box">
-              <div class="temperature_box_data">Area 1: DATA</div>
-              <div class="temperature_box_button">
-                <button><i class="bi bi-plus-lg "></i></button>
-                <button><i class="bi bi-dash"></i></button>
-              </div>
-            </div>
+            <form action="" method="post">
+                <input type="number" name="min-moi" placeholder="...">
+            </form> 
           </div>
         </div>
       </div>

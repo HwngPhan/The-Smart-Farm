@@ -20,3 +20,76 @@ html {
 body {
   margin-bottom: 60px;
 }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 140px;
+  height: 70px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #1bff2e;
+  transition: 0.4s;
+  border-radius: 35px;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider.round::before {
+  position: absolute;
+  content: "";
+  height: 60px;
+  width: 60px;
+  right: 5px;
+  bottom: 5px;
+  background-color: rgb(29, 26, 26);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider {
+  background-color: #bd2929;
+  color: white;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(-70px);
+}
+
+.switch input:checked + .slider::after {
+  /* content: "OFF"; */
+  color: white;
+}
+/* .slider::after {
+  content: "ON";
+} */
+.lightness-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2d2f28; /* Match your dark UI */
+  padding: 10px 20px;
+  border-radius: 12px;
+  max-width: 470px;
+  box-sizing: border-box;
+}
+
+.lightness-icon-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}

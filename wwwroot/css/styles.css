@@ -406,10 +406,13 @@
 
 .action_box_ele_temperature {
     display: flex;
+    justify-content: space-around;
+    gap:30px;
     background: #282C24;
     height: 8em;
     width: 30em;
     border-radius: 12px;
+    margin-right: 20px;
 }
 
 .action_box_ele_icon_temper {
@@ -417,7 +420,7 @@
     font-size: 20px;
     color: white;
     height: 8em;
-    width: 6em;
+    width: 10em;
     border-radius: 12px;
     margin-top: 1.5em;
 }
@@ -456,5 +459,32 @@
 .temperature_box_button button:hover{
     background-color: #ECB365;
 }
+button{
+    width: 100px !important;
+    height: 60px !important;
+}
 
+/* Style for the moisture threshold input container */
+.temperature_container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 10px;
+}
 
+/* Style for the input box */
+.temperature_container input[type="number"] {
+    width: 120px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.temperature_container input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

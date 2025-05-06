@@ -7872,31 +7872,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KHÁNH\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HOC_HANH\\Materials\\HK242\\Do_An_clone\\The-Smart-Farm\\TSF_mustidisProj.csproj",
+      "projectUniqueName": "D:\\HK242\\Đồ án đa ngành\\Project_Final\\The-Smart-Farm\\TSF_mustidisProj.csproj",
       "projectName": "TSF_mustidisProj",
-      "projectPath": "D:\\HOC_HANH\\Materials\\HK242\\Do_An_clone\\The-Smart-Farm\\TSF_mustidisProj.csproj",
-      "packagesPath": "C:\\Users\\KHÁNH\\.nuget\\packages\\",
-      "outputPath": "D:\\HOC_HANH\\Materials\\HK242\\Do_An_clone\\The-Smart-Farm\\obj\\",
+      "projectPath": "D:\\HK242\\Đồ án đa ngành\\Project_Final\\The-Smart-Farm\\TSF_mustidisProj.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\HK242\\Đồ án đa ngành\\Project_Final\\The-Smart-Farm\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\KHÁNH\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7914,8 +7907,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -7981,7 +7973,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300-preview.0.25177.5/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
