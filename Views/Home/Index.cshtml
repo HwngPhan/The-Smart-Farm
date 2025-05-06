@@ -60,8 +60,8 @@
   <!-- Desktop Sidebar (Hidden on mobile) -->
   <div class="sidebar d-none d-lg-block">
     <div class="user-profile">
-      <img src="../images/images.jpg" alt="User">
-      <div>Username</div>
+      <img src="https://avatars.githubusercontent.com/u/123962141?v=4" alt="Khanhs">
+      <div>The Smart Farm</div>
     </div>
     <ul class="nav flex-column">
       <li class="nav-item">
@@ -159,8 +159,8 @@
 
             <div class="progress-item bar-2">
               <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 50%;">
-                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                <div id="moisture-bar" class="progress-bar-fill" style="height: 50%;">
+                  <div id="moisture-val" class="percentage-text" style="bottom: 50%;">50%</div>
                 </div>
               </div>
               <div class="progress-label status_box_ele_text">Humidity</div>
@@ -270,13 +270,27 @@
     let autopump = lastValues[6];
     let soimoilimit = lastValues[7];
 
+    if (lights == "ON") {
+        document.getElementById("lightToggle").checked = false;
+    } else {
+        document.getElementById("lightToggle").checked = true;
+    }
+    if (pumps == "ON") {
+        document.getElementById("pumpToggle").checked = false;
+    } else {
+        document.getElementById("pumpToggle").checked = true;
+    }
+    if (autopump == "ON") {
+        document.getElementById("autopumpToggle").checked = false;
+    } else {
+        document.getElementById("autopumpToggle").checked = true;
+    }
 
     function updateTempGauge(temp) {
         const fillLevel = document.getElementById("temp-bar");
         const Text = document.getElementById("temp-val");
 
         fillLevel.style.height = temp*2 + "%";
-        // const rainInches = calculatePercentage(5, rainfall);
         Text.textContent = temp;
       }
 
@@ -285,7 +299,6 @@
         const Text = document.getElementById("soil-current-val");
 
         fillLevel.style.height = val + "%";
-        // const rainInches = calculatePercentage(5, rainfall);
         Text.textContent = val;
       }
 
@@ -294,13 +307,20 @@
         const Text = document.getElementById("soil-minimum-val");
 
         fillLevel.style.height = val + "%";
-        // const rainInches = calculatePercentage(5, rainfall);
+        Text.textContent = val;
+      }
+    
+    function updateMoistureGauge(val) {
+        const fillLevel = document.getElementById("moisture-bar");
+        const Text = document.getElementById("moisture-val");
+
+        fillLevel.style.height = val + "%";
         Text.textContent = val;
       }
     updateTempGauge(temperature);
-    updateSoilCurrentGauge(moisture);
+    updateSoilCurrentGauge(soimoi);
     updateSoilMinimumGauge(soimoilimit);
-
+    updateMoistureGauge(moisture);
 
 
     // Only target .progress-water bars
@@ -351,7 +371,7 @@
             const feedUrl =
             "https://io.adafruit.com/api/v2/Hwng/feeds/soimoilimit/data";
             const header = {
-            "X-AIO-Key": "aio_aZTl61VfiazsT6xcLtAfcQjKHtX1", // Replace with your Adafruit IO Key
+            "X-AIO-Key": "aio_BhJK28B6bY7aIIP5HoId8Y8rnv7Z", // Replace with your Adafruit IO Key
             "Content-Type": "application/json",
           };
             const message = document.getElementById("publishMessage").value;
@@ -383,12 +403,12 @@
       const autopumpfeedUrl = "https://io.adafruit.com/api/v2/Hwng/feeds/autopump/data";
       const lightfeedUrl = "https://io.adafruit.com/api/v2/Hwng/feeds/lights/data";
       const headers = {
-        "X-AIO-Key": "aio_aZTl61VfiazsT6xcLtAfcQjKHtX1", // Replace with your Adafruit IO Key
+        "X-AIO-Key": "aio_BhJK28B6bY7aIIP5HoId8Y8rnv7Z", // Replace with your Adafruit IO Key
         "Content-Type": "application/json",
       };
 
       function sendDataPump(state) {
-        const value = state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
+        const value = !state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
 
         fetch(pumpfeedUrl, {
           method: "POST", // Use POST to send data
@@ -410,7 +430,7 @@
       }
 
       function sendDataPumpAuto(state) {
-        const value = state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
+        const value = !state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
 
         fetch(autopumpfeedUrl, {
           method: "POST", // Use POST to send data
@@ -432,7 +452,7 @@
       }
 
       function sendDataLight(state) {
-        const value = state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
+        const value = !state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
 
         fetch(lightfeedUrl, {
           method: "POST", // Use POST to send data
