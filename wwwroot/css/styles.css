@@ -61,6 +61,10 @@
     min-height: 100vh;
     padding: 2rem;
 }
+h4{
+    color: white !important;
+    font-weight: bold !important;
+}
 
 /* Mobile styles */
 @media (max-width: 992px) {

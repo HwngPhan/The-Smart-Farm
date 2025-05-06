@@ -125,7 +125,7 @@
                   <div id="soil-minimum-val" class="percentage-text" style="bottom: 50%;">20%</div>
                 </div>
               </div>
-              <div class="progress-label status_box_ele_text">Minimum</div>
+              <div class="progress-label status_box_ele_text">Threshold</div>
             </div>
 
             <!-- Third bar (50%) - Orange/Red -->
@@ -143,7 +143,7 @@
       </div>
       <div class="card shadow-lg" style="width: 33%;">
         <div class="card-header text-white border-0 status_box">
-          <h3 class="mb-0" style="text-align: center;">Temperature</h3>
+          <h3 class="mb-0" style="text-align: center;">Air</h3>
         </div>
         <div class="card-body p-4 status_box_ele">
           <div class="progress-container">
@@ -154,7 +154,16 @@
                   <div id ="temp-val" class="percentage-text" style="bottom: 50%;"></div>
                 </div>
               </div>
-              <!-- <div class="progress-label status_box_ele_text">Temperature</div> -->
+              <div class="progress-label status_box_ele_text">Temperature</div>
+            </div>
+
+            <div class="progress-item bar-2">
+              <div class="progress-bar-vertical">
+                <div class="progress-bar-fill" style="height: 50%;">
+                  <div class="percentage-text" style="bottom: 50%;">50%</div>
+                </div>
+              </div>
+              <div class="progress-label status_box_ele_text">Humidity</div>
             </div>
 
            
@@ -196,7 +205,7 @@
           </div>
 
           <label class="switch">
-              <input type="checkbox" id="pumpToggle"/>
+              <input type="checkbox" id="pumpToggle" onchange="sendDataPump(this.checked)"/>
               <span class="slider round"></span>
           </label>
         </div>
@@ -209,7 +218,7 @@
           </div>
 
           <label class="switch">
-              <input type="checkbox" id="autopumpToggle" />
+              <input type="checkbox" id="autopumpToggle" onchange="sendDataPumpAuto(this.checked)"/>
               <span class="slider round"></span>
           </label>
         </div>
@@ -227,7 +236,7 @@
           </div>
 
           <label class="switch">
-              <input type="checkbox" id="lightToggle" />
+              <input type="checkbox" id="lightToggle" onchange="sendDataLight(this.checked)"/>
               <span class="slider round"></span>
           </label>
         </div>
@@ -364,6 +373,86 @@
             }
         });
   </script>
+  <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const pumpfeedUrl = "https://io.adafruit.com/api/v2/Hwng/feeds/pumps/data"; // Change to your feed name
+      const autopumpfeedUrl = "https://io.adafruit.com/api/v2/Hwng/feeds/autopump/data";
+      const lightfeedUrl = "https://io.adafruit.com/api/v2/Hwng/feeds/lights/data";
+      const headers = {
+        "X-AIO-Key": "aio_aZTl61VfiazsT6xcLtAfcQjKHtX1", // Replace with your Adafruit IO Key
+        "Content-Type": "application/json",
+      };
+
+      function sendDataPump(state) {
+        const value = state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
+
+        fetch(pumpfeedUrl, {
+          method: "POST", // Use POST to send data
+          headers: headers,
+          body: JSON.stringify({ value: value }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to send data");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            document.getElementById("pumpToggle").innerText = value; // Update status
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+
+      function sendDataPumpAuto(state) {
+        const value = state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
+
+        fetch(autopumpfeedUrl, {
+          method: "POST", // Use POST to send data
+          headers: headers,
+          body: JSON.stringify({ value: value }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to send data");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            document.getElementById("autopumpToggle").innerText = value; // Update status
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+
+      function sendDataLight(state) {
+        const value = state ? "ON" : "OFF"; // Send "ON" or "OFF" based on toggle state
+
+        fetch(lightfeedUrl, {
+          method: "POST", // Use POST to send data
+          headers: headers,
+          body: JSON.stringify({ value: value }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to send data");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            document.getElementById("lightToggle").innerText = value; // Update status
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
