@@ -1,4 +1,4 @@
-﻿
+﻿@model List<TSF_mustidisProj.Models.FeedModel>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -111,8 +111,8 @@
             <!-- First bar (100%) - Purple/Blue -->
             <div class="progress-item bar-3">
               <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 70%;">
-                  <div class="percentage-text" style="bottom: 50%;">70%</div>
+                <div id="soil-current-bar" class="progress-bar-fill" style="height: 70%;">
+                  <div id="soil-current-val" class="percentage-text" style="bottom: 50%;">70%</div>
                 </div>
               </div>
               <div class="progress-label status_box_ele_text">Current</div>
@@ -121,8 +121,8 @@
             <!-- Second bar (75%) - Green/Teal -->
             <div class="progress-item bar-2">
               <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 20%;">
-                  <div class="percentage-text" style="bottom: 50%;">20%</div>
+                <div id="soil-minimum-bar" class="progress-bar-fill" style="height: 20%;">
+                  <div id="soil-minimum-val" class="percentage-text" style="bottom: 50%;">20%</div>
                 </div>
               </div>
               <div class="progress-label status_box_ele_text">Minimum</div>
@@ -150,8 +150,8 @@
             <!-- First bar (100%) - Purple/Blue -->
             <div class="progress-item bar-3">
               <div class="progress-bar-vertical">
-                <div class="progress-bar-fill" style="height: 70%;">
-                  <div class="percentage-text" style="bottom: 50%;">36C</div>
+                <div id="temp-bar" class="progress-bar-fill" style="height: 70%;">
+                  <div id ="temp-val" class="percentage-text" style="bottom: 50%;"></div>
                 </div>
               </div>
               <!-- <div class="progress-label status_box_ele_text">Temperature</div> -->
@@ -239,8 +239,9 @@
           </div>
 
           <div class="progress-container temperature_container">
-            <form action="" method="post">
-                <input type="number" name="min-moi" placeholder="...">
+            <form id="publishForm" action="" method="post">
+                <input type="number" id="publishMessage" name="min-moi" placeholder="...">
+                <!-- <button type="submit" class="btn btn-success">Publish</button> -->
             </form> 
           </div>
         </div>
@@ -250,6 +251,49 @@
 
   <!-- Bootstrap JS Bundle with Popper -->
   <script>
+    let lastValues = @Html.Raw(Json.Serialize(Model.Select(m => m.LastValue)));
+    let temperature = lastValues[0];
+    let moisture = lastValues[1];
+    let lightintensity = lastValues[2];
+    let lights = lastValues[3];
+    let pumps = lastValues[4];
+    let soimoi = lastValues[5];
+    let autopump = lastValues[6];
+    let soimoilimit = lastValues[7];
+
+
+    function updateTempGauge(temp) {
+        const fillLevel = document.getElementById("temp-bar");
+        const Text = document.getElementById("temp-val");
+
+        fillLevel.style.height = temp*2 + "%";
+        // const rainInches = calculatePercentage(5, rainfall);
+        Text.textContent = temp;
+      }
+
+    function updateSoilCurrentGauge(val) {
+        const fillLevel = document.getElementById("soil-current-bar");
+        const Text = document.getElementById("soil-current-val");
+
+        fillLevel.style.height = val + "%";
+        // const rainInches = calculatePercentage(5, rainfall);
+        Text.textContent = val;
+      }
+
+    function updateSoilMinimumGauge(val) {
+        const fillLevel = document.getElementById("soil-minimum-bar");
+        const Text = document.getElementById("soil-minimum-val");
+
+        fillLevel.style.height = val + "%";
+        // const rainInches = calculatePercentage(5, rainfall);
+        Text.textContent = val;
+      }
+    updateTempGauge(temperature);
+    updateSoilCurrentGauge(moisture);
+    updateSoilMinimumGauge(soimoilimit);
+
+
+
     // Only target .progress-water bars
     document.querySelectorAll('.progress-water .progress-bar-vertical').forEach(container => {
       container.addEventListener('click', function (e) {
@@ -282,6 +326,43 @@
           .catch(err => console.error('Error:', err));
       });
     });
+
+
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // prevent default Enter behavior
+            document.getElementById("publishForm").requestSubmit(); // trigger form submission
+        }
+    });
+
+    document.getElementById("publishForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const feedUrl =
+            "https://io.adafruit.com/api/v2/Hwng/feeds/soimoilimit/data";
+            const header = {
+            "X-AIO-Key": "aio_aZTl61VfiazsT6xcLtAfcQjKHtX1", // Replace with your Adafruit IO Key
+            "Content-Type": "application/json",
+          };
+            const message = document.getElementById("publishMessage").value;
+
+            const response = await fetch(feedUrl, {
+                method: 'POST',
+                headers: header,
+                body: JSON.stringify({
+                    value: message
+                })
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert("Message published successfully!");
+                location.reload();
+            } else {
+                alert("Error publishing message: " + result.error);
+            }
+        });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
